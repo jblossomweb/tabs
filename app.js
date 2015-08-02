@@ -33,6 +33,9 @@ angular.module('app', [])
       self.tabs = []
       self.addTab = function addTab(tab) {
 			  self.tabs.push(tab)
+			  if(self.tabs.length === 1) {
+			    tab.active = true
+			  }
 			}
     }
   }
