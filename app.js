@@ -13,6 +13,7 @@ angular.module('app', [])
     	heading: '@'
     },
     link: function(scope, elem, attr, tabsetCtrl) {
+    	scope.active = false
     	tabsetCtrl.addTab(scope)
     }
   }
