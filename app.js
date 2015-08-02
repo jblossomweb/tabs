@@ -7,7 +7,7 @@ angular.module('app', [])
   return {
     restrict: 'E',
     transclude: true,
-    template: '<div role="tabpanel" ng-transclude></div>',
+    template: '<div role="tabpanel" ng-show="active" ng-transclude></div>',
     require: '^tabset',
     scope: { 
     	heading: '@'
