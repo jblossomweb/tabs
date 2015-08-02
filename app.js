@@ -37,6 +37,14 @@ angular.module('app', [])
 			    tab.active = true
 			  }
 			}
+			self.select = function(selectedTab) {
+			  angular.forEach(self.tabs, function(tab) {
+			    if(tab.active && tab !== selectedTab) {
+			      tab.active = false
+			    }
+			  })
+			  selectedTab.active = true
+			}
     }
   }
 })
