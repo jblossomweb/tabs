@@ -26,6 +26,9 @@ angular.module('app', [])
     controller: function() {
       var self = this
       self.tabs = []
+      self.addTab = function addTab(tab) {
+			  self.tabs.push(tab)
+			}
     }
   }
 })
