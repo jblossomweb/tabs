@@ -30,13 +30,18 @@ angular.module('app', [])
   return {
     restrict: 'E',
     transclude: true,
-    scope: { },
+    scope: { 
+    	type: '@' 
+    },
     templateUrl: 'tabset.html',
     bindToController: true,
     controllerAs: 'tabset',
     controller: function() {
       var self = this
       self.tabs = []
+      self.classes = {}
+			if(self.type === 'pills') { self.classes['nav-pills'] = true}
+			else { self.classes['nav-tabs'] = true }
       self.addTab = function addTab(tab) {
 			  self.tabs.push(tab)
 			  if(self.tabs.length === 1) {
