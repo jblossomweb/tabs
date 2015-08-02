@@ -31,7 +31,9 @@ angular.module('app', [])
     restrict: 'E',
     transclude: true,
     scope: { 
-    	type: '@' 
+    	type: '@',
+    	vertical: '@',
+  		justified: '@'
     },
     templateUrl: 'tabset.html',
     bindToController: true,
@@ -42,6 +44,8 @@ angular.module('app', [])
       self.classes = {}
 			if(self.type === 'pills') { self.classes['nav-pills'] = true}
 			else { self.classes['nav-tabs'] = true }
+			if(self.justified) { self.classes['nav-justified'] = true }
+			if(self.vertical) { self.classes['nav-stacked'] = true }
       self.addTab = function addTab(tab) {
 			  self.tabs.push(tab)
 			  if(self.tabs.length === 1) {
