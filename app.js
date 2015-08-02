@@ -14,6 +14,12 @@ angular.module('app', [])
     },
     link: function(scope, elem, attr, tabsetCtrl) {
     	scope.active = false
+    	scope.disabled = false
+		  if(attr.disable) {
+		    attr.$observe('disable', function(value) {
+		      scope.disabled = (value !== 'false')
+		    })
+		  }
     	tabsetCtrl.addTab(scope)
     }
   }
@@ -38,6 +44,7 @@ angular.module('app', [])
 			  }
 			}
 			self.select = function(selectedTab) {
+				if(selectedTab.disabled) { return }
 			  angular.forEach(self.tabs, function(tab) {
 			    if(tab.active && tab !== selectedTab) {
 			      tab.active = false
