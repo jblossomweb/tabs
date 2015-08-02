@@ -10,7 +10,9 @@ angular.module('app', [])
     template: '<h2>Hello world!</h2> <div role="tabpanel" ng-transclude></div>',
     require: '^tabset',
     scope: { },
-    link: function(scope, elem, attr, tabsetCtrl) {}
+    link: function(scope, elem, attr, tabsetCtrl) {
+    	tabsetCtrl.addTab(scope)
+    }
   }
 })
 
